@@ -449,6 +449,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   magnetPrefabs:
   - {fileID: 2507143787989643911, guid: 9a929272c7f9549168c5fafe10ab119e, type: 3}
+  - {fileID: 4829176887208058420, guid: c947b67b7b9eb454595dcf43ff45e98c, type: 3}
+  - {fileID: 2926862777175193985, guid: b2681dc9c70a842a989c2416b296ea53, type: 3}
+  - {fileID: 3195007815531378562, guid: 83db374232acd428ebc0a49993d9ec77, type: 3}
   spawnInterval: 5
   spawnRadius: 10
   player: {fileID: 1608782113}
