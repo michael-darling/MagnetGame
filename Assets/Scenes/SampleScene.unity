@@ -341,7 +341,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1360258206
+--- !u!1001 &631151849
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -351,11 +351,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4288190879858132684, guid: 2f6ad1337976d4a78ab0f2bc18f824af, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.07
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4288190879858132684, guid: 2f6ad1337976d4a78ab0f2bc18f824af, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.04
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4288190879858132684, guid: 2f6ad1337976d4a78ab0f2bc18f824af, type: 3}
       propertyPath: m_LocalPosition.z
@@ -389,6 +389,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7428340549047028631, guid: 2f6ad1337976d4a78ab0f2bc18f824af, type: 3}
+      propertyPath: isPositive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8890642858694664773, guid: 2f6ad1337976d4a78ab0f2bc18f824af, type: 3}
       propertyPath: m_Name
       value: Magnet (1)
@@ -398,7 +402,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f6ad1337976d4a78ab0f2bc18f824af, type: 3}
---- !u!1001 &3717763800089421432
+--- !u!1001 &1511348358
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -408,7 +412,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4288190879858132684, guid: 2f6ad1337976d4a78ab0f2bc18f824af, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 4288190879858132684, guid: 2f6ad1337976d4a78ab0f2bc18f824af, type: 3}
       propertyPath: m_LocalPosition.y
@@ -461,5 +465,5 @@ SceneRoots:
   m_Roots:
   - {fileID: 519420032}
   - {fileID: 619394802}
-  - {fileID: 3717763800089421432}
-  - {fileID: 1360258206}
+  - {fileID: 1511348358}
+  - {fileID: 631151849}
