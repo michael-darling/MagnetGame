@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   strength: 10
   isPositive: 1
+  distancePower: 2
 --- !u!50 &1854743574346903271
 Rigidbody2D:
   serializedVersion: 4

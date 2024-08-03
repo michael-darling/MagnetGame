@@ -4,6 +4,7 @@ public class Magnet : MonoBehaviour
 {
     public float strength = 10f;
     public bool isPositive = true;
+    public float distancePower = 2;
 
     private Rigidbody2D rb;
 
@@ -30,7 +31,7 @@ public class Magnet : MonoBehaviour
         float distance = direction.magnitude;
         if (distance == 0f) return;
 
-        float forceMagnitude = (strength * otherMagnet.strength) / Mathf.Pow(distance, 2);
+        float forceMagnitude = strength * otherMagnet.strength / Mathf.Pow(distance, distancePower);
         if (isPositive == otherMagnet.isPositive)
         {
             forceMagnitude = -forceMagnitude; // Repel if both have the same polarity
