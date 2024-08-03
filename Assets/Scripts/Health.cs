@@ -25,7 +25,10 @@ public class Health : MonoBehaviour
     public void TakeDamage(float amount)
     {
         currentHealth -= amount;
-        if (currentHealth < 0f) currentHealth = 0f;
+        if (currentHealth <= 0f)
+        {
+            Die();
+        }
         Debug.Log($"Health: {currentHealth} / {maxHealth}");
         UpdateHealthBar();
     }
@@ -35,5 +38,10 @@ public class Health : MonoBehaviour
         currentHealth += amount;
         if (currentHealth > maxHealth) currentHealth = maxHealth;
         UpdateHealthBar();
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
     }
 }
