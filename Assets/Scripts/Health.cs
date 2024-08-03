@@ -1,12 +1,11 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
     public float maxHealth = 100f;
     private float currentHealth;
 
-    public Image healthBarImage;
+    public Transform healthBarSprite;
 
     void Start()
     {
@@ -16,12 +15,11 @@ public class Health : MonoBehaviour
 
     void UpdateHealthBar()
     {
-        if (!healthBarImage)
+        if (!healthBarSprite)
         {
             return;
         }
-        float fillAmount = currentHealth / maxHealth;
-        healthBarImage.fillAmount = fillAmount;
+        healthBarSprite.localScale = Vector3.one * currentHealth / maxHealth;
     }
 
     public void TakeDamage(float amount)
