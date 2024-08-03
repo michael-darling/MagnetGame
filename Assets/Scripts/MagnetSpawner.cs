@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class MagnetSpawner : MonoBehaviour
 {
-    public GameObject magnetPrefab; // The magnet prefab to spawn
+    public GameObject[] magnetPrefabs; // The magnet prefab to spawn
     public float spawnInterval = 5f; // Time interval between spawns
     public float spawnRadius = 10f; // Radius within which to spawn magnets
     public Transform player; // Reference to the player
@@ -40,7 +40,9 @@ public class MagnetSpawner : MonoBehaviour
             }
         } while (!validPosition);
 
+        GameObject randomPrefab = magnetPrefabs[Random.Range(0, magnetPrefabs.Length)];
+
         // Instantiate the magnet
-        Instantiate(magnetPrefab, spawnPosition, Quaternion.identity);
+        Instantiate(randomPrefab, spawnPosition, Quaternion.identity);
     }
 }

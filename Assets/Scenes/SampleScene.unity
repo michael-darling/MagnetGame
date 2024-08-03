@@ -447,7 +447,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d86347cf2a804bb5877ed000d9f6c23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  magnetPrefab: {fileID: 2507143787989643911, guid: 9a929272c7f9549168c5fafe10ab119e, type: 3}
+  magnetPrefabs:
+  - {fileID: 2507143787989643911, guid: 9a929272c7f9549168c5fafe10ab119e, type: 3}
   spawnInterval: 5
   spawnRadius: 10
   player: {fileID: 1608782113}
