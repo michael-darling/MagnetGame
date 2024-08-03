@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MagnetPlayer
       objectReference: {fileID: 0}
+    - target: {fileID: 8890642858694664773, guid: 2f6ad1337976d4a78ab0f2bc18f824af, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

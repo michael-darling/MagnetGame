@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7428340549047028631}
   - component: {fileID: 1854743574346903271}
   - component: {fileID: -2799759750985276198}
+  - component: {fileID: 1643179451198717718}
   m_Layer: 0
   m_Name: Magnet
   m_TagString: Untagged
@@ -164,3 +165,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &1643179451198717718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8890642858694664773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caf070b8494974e449285a9158fe7d57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  healthBarImage: {fileID: 0}
