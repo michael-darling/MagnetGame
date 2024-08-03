@@ -452,7 +452,7 @@ MonoBehaviour:
   spawnInterval: 5
   spawnRadius: 10
   player: {fileID: 1608782113}
-  minimumDistanceFromPlayer: 2
+  minimumDistanceFromPlayer: 4
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
