@@ -398,6 +398,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1608782113 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7122094095303103915, guid: e3ca9bdd1cec84565a6128176ed0ced1, type: 3}
+  m_PrefabInstance: {fileID: 301049628}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1799490202
 GameObject:
   m_ObjectHideFlags: 0
@@ -445,7 +450,8 @@ MonoBehaviour:
   magnetPrefab: {fileID: 2507143787989643911, guid: 9a929272c7f9549168c5fafe10ab119e, type: 3}
   spawnInterval: 5
   spawnRadius: 10
-  randomizePolarity: 0
+  player: {fileID: 1608782113}
+  minimumDistanceFromPlayer: 2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

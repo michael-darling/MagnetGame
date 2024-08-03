@@ -6,7 +6,8 @@ public class MagnetSpawner : MonoBehaviour
     public GameObject magnetPrefab; // The magnet prefab to spawn
     public float spawnInterval = 5f; // Time interval between spawns
     public float spawnRadius = 10f; // Radius within which to spawn magnets
-    public bool randomizePolarity;
+    public Transform player; // Reference to the player
+    public float minimumDistanceFromPlayer = 2f; // Minimum distance from player to spawn
 
     private void Start()
     {
@@ -24,17 +25,22 @@ public class MagnetSpawner : MonoBehaviour
 
     private void SpawnMagnet()
     {
-        // Random position within a circle of spawnRadius
-        Vector2 spawnPosition = (Vector2)transform.position + Random.insideUnitCircle * spawnRadius;
+        Vector2 spawnPosition;
+        bool validPosition = false;
+
+        do
+        {
+            // Random position within a circle of spawnRadius
+            spawnPosition = (Vector2)transform.position + Random.insideUnitCircle * spawnRadius;
+
+            // Check if the position is far enough from the player
+            if (Vector2.Distance(spawnPosition, player.position) >= minimumDistanceFromPlayer)
+            {
+                validPosition = true;
+            }
+        } while (!validPosition);
 
         // Instantiate the magnet
-        GameObject newMagnet = Instantiate(magnetPrefab, spawnPosition, Quaternion.identity);
-
-        // Optionally, configure the new magnet (e.g., random polarity)
-        if (randomizePolarity)
-        {
-            Magnet magnetScript = newMagnet.GetComponent<Magnet>();
-            magnetScript.isPositive = Random.value > 0.5f; // Randomly set polarity
-        }
+        Instantiate(magnetPrefab, spawnPosition, Quaternion.identity);
     }
 }
