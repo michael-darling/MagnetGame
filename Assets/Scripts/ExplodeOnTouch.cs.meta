@@ -3,7 +3,9 @@ guid: c65d185a67e314d29a3e63a1c90144d8
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - explosionEffectPrefab: {instanceID: 0}
+  - explosionSoundClip: {fileID: 8300000, guid: cfde8ec32a2fb044ead6f79bdc503d4a, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

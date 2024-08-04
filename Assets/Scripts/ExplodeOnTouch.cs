@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class ExplodeOnTouch : MonoBehaviour
@@ -11,6 +12,7 @@ public class ExplodeOnTouch : MonoBehaviour
     private FloatRange explosionDelay;
     private bool isExploded;
     private Health health;
+    [SerializeField] private AudioClip explosionSoundClip;
 
     void Start()
     {
@@ -72,6 +74,9 @@ public class ExplodeOnTouch : MonoBehaviour
                 }
             }
         }
+
+        // play explosion sound effect
+        SoundFXManager.instance.PlaySoundFXClip(explosionSoundClip, transform, 1f);
 
         // Destroy the explosive magnet
         Destroy(gameObject);
