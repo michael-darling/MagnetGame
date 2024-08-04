@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Magnet : MonoBehaviour
@@ -6,16 +7,18 @@ public class Magnet : MonoBehaviour
     public bool isPositive = true;
     public float distancePower = 2;
 
+    private static readonly List<Magnet> magnets = new();
+
     private Rigidbody2D rb;
 
     void Start()
     {
+        magnets.Add(this);
         rb = GetComponent<Rigidbody2D>();
     }
 
     void FixedUpdate()
     {
-        Magnet[] magnets = FindObjectsOfType<Magnet>();
         foreach (Magnet magnet in magnets)
         {
             if (magnet != this)
