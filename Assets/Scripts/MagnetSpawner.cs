@@ -70,7 +70,7 @@ public class MagnetSpawner : MonoBehaviour
             spawnPosition = (Vector2)transform.position + Random.insideUnitCircle * spawnRadius;
 
             // Check if the position is far enough from the player
-            if (Vector2.Distance(spawnPosition, player.position) >= minimumDistanceFromPlayer)
+            if (player == null || Vector2.Distance(spawnPosition, player.position) >= minimumDistanceFromPlayer)
             {
                 validPosition = true;
             }
