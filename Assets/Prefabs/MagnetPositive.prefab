@@ -102,6 +102,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionRadius: 5
-  explosionForce: 700
-  damage: 50
+  explosionForce: 350
+  damage: 100
   explosionEffectPrefab: {fileID: 0}

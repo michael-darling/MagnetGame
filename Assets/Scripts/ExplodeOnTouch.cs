@@ -27,7 +27,7 @@ public class ExplodeOnTouch : MonoBehaviour
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, explosionRadius);
         foreach (Collider2D collider in colliders)
         {
-            if (collider.gameObject != gameObject)
+            if (collider.CompareTag("Magnet") && collider.gameObject != gameObject)
             {
                 // Apply damage
                 if (collider.TryGetComponent<Health>(out var magnetHealth))
