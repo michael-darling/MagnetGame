@@ -7,6 +7,9 @@ public class Health : MonoBehaviour
 
     public Transform healthBarSprite;
 
+    [SerializeField]
+    private GameObject deathAnimationPrefab;
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -42,6 +45,10 @@ public class Health : MonoBehaviour
 
     private void Die()
     {
+        if (deathAnimationPrefab)
+        {
+            Instantiate(deathAnimationPrefab, transform.position, transform.rotation);
+        }
         Destroy(gameObject);
     }
 }
