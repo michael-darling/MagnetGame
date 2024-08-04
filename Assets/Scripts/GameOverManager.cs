@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameOverManager : MonoBehaviour
 {
@@ -7,6 +8,11 @@ public class GameOverManager : MonoBehaviour
 
     [SerializeField]
     private GameObject canvas;
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Reload the current scene
+    }
 
     private void OnEnable()
     {
