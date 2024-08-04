@@ -238,6 +238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 2056199444}
+  scoreUpdateSpeed: 0.05
 --- !u!1001 &301049628
 PrefabInstance:
   m_ObjectHideFlags: 0
