@@ -270,5 +270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 397500dcb2a864f41948cbb218013909, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normalMusic: {fileID: 4449133685478239962}
   lowHealthMusic: {fileID: 160945460189773008}
+  deathFadeDuration: 2
   playerHealth: {fileID: 0}

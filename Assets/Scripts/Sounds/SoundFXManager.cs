@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SoundFXManager : MonoBehaviour
@@ -16,7 +14,6 @@ public class SoundFXManager : MonoBehaviour
 
     public void PlaySoundFXClip(AudioClip audioClip, Transform spawnTransform, float volume, FloatRange? pitch = null)
     {
-        Debug.Log($"Audio clip: {audioClip.name}");
         AudioSource audioSource = Instantiate(soundFXObject, spawnTransform.position, Quaternion.identity);
 
         //assign the audioClip
