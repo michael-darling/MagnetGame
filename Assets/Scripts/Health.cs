@@ -10,6 +10,10 @@ public class Health : MonoBehaviour
 
     [SerializeField]
     private GameObject deathAnimationPrefab;
+
+    [SerializeField]
+    private bool autoDestroyOnDeath = true;
+
     public event Action OnDeath;
 
     void Start()
@@ -32,9 +36,9 @@ public class Health : MonoBehaviour
         currentHealth -= amount;
         if (currentHealth <= 0f)
         {
-            Die();
             currentHealth = 0f;
             OnDeath?.Invoke();
+            Die();
         }
         UpdateHealthBar();
     }
@@ -46,12 +50,15 @@ public class Health : MonoBehaviour
         UpdateHealthBar();
     }
 
-    private void Die()
+    public void Die()
     {
         if (deathAnimationPrefab)
         {
             Instantiate(deathAnimationPrefab, transform.position, transform.rotation);
         }
-        Destroy(gameObject);
+        if (autoDestroyOnDeath)
+        {
+            Destroy(gameObject);
+        }
     }
 }
