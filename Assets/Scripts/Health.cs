@@ -32,7 +32,6 @@ public class Health : MonoBehaviour
         {
             Die();
         }
-        Debug.Log($"Health: {currentHealth} / {maxHealth}");
         UpdateHealthBar();
     }
 
