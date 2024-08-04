@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class ExplodeOnTouch : MonoBehaviour
@@ -6,17 +7,24 @@ public class ExplodeOnTouch : MonoBehaviour
     public float explosionForce = 700f;
     public float damage = 50f;
     public GameObject explosionEffectPrefab; // Reference to the explosion effect prefab
+    [SerializeField]
+    private FloatRange explosionDelay;
+    private bool isExploded;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("Player"))
+        if (!isExploded && collision.collider.CompareTag("Player"))
         {
-            Explode();
+            StartCoroutine(Explode());
         }
     }
 
-    void Explode()
+    private IEnumerator Explode()
     {
+        isExploded = true;
+
+        yield return new WaitForSeconds(explosionDelay.GetRandom());
+
         // Instantiate explosion effect
         if (explosionEffectPrefab != null)
         {
