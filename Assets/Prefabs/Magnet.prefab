@@ -265,3 +265,7 @@ MonoBehaviour:
   maxHealth: 100
   healthBarSprite: {fileID: 6697085685272673737}
   deathAnimationPrefab: {fileID: 6155017838123488879, guid: b3b0b4b5c7ff94679a96e200ebecdc28, type: 3}
+  autoDestroyOnDeath: 1
+  scoreValue: 1
+  regenerationRate: 1
+  regenerationAmount: 0

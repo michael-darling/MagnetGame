@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using System.Collections;
 
 public class Health : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class Health : MonoBehaviour
 
     [SerializeField]
     private int scoreValue = 1;
+    public float regenerationRate = 1f; // Time in seconds between each regeneration tick
+    public float regenerationAmount = 5f; // Amount of health to regenerate each tick
 
     public event Action OnDeath;
 
@@ -23,6 +26,7 @@ public class Health : MonoBehaviour
     {
         currentHealth = maxHealth;
         UpdateHealthBar();
+        StartCoroutine(RegenerateHealth()); // Start the regeneration coroutine
     }
 
     void UpdateHealthBar()
@@ -63,6 +67,18 @@ public class Health : MonoBehaviour
         if (autoDestroyOnDeath)
         {
             Destroy(gameObject);
+        }
+    }
+
+    private IEnumerator RegenerateHealth()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(regenerationRate);
+            if (currentHealth < maxHealth)
+            {
+                Heal(regenerationAmount);
+            }
         }
     }
 }

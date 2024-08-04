@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: scoreValue
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1643179451198717718, guid: 2f6ad1337976d4a78ab0f2bc18f824af, type: 3}
+      propertyPath: regenerationAmount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4288190879858132684, guid: 2f6ad1337976d4a78ab0f2bc18f824af, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
