@@ -21,6 +21,15 @@ public class Health : MonoBehaviour
     public float regenerationAmount = 5f; // Amount of health to regenerate each tick
 
     public event Action OnDeath;
+    public event Action<TookDamageEvent> OnTookDamage;
+    public struct TookDamageEvent
+    {
+        public float amount;
+        public TookDamageEvent(float amount)
+        {
+            this.amount = amount;
+        }
+    }
 
     void Start()
     {
@@ -48,6 +57,7 @@ public class Health : MonoBehaviour
             Die();
         }
         UpdateHealthBar();
+        OnTookDamage?.Invoke(new(amount));
     }
 
     public void Heal(float amount)
