@@ -14,6 +14,9 @@ public class Health : MonoBehaviour
     [SerializeField]
     private bool autoDestroyOnDeath = true;
 
+    [SerializeField]
+    private int scoreValue = 1;
+
     public event Action OnDeath;
 
     void Start()
@@ -52,6 +55,7 @@ public class Health : MonoBehaviour
 
     public void Die()
     {
+        ScoreManager.Instance.AddPoints(scoreValue);
         if (deathAnimationPrefab)
         {
             Instantiate(deathAnimationPrefab, transform.position, transform.rotation);

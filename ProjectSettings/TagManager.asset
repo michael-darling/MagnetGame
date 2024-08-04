@@ -39,6 +39,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: ScoreCanvas
+    uniqueID: 479021197
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
