@@ -1,10 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class MagnetSpawner : MonoBehaviour
 {
     public GameObject[] magnetPrefabs; // Array of magnet prefabs to spawn
+    public float[] magnetProbWeights;
+
     public float initialSpawnInterval = 5f; // Initial time interval between spawns
     public float minimumSpawnInterval = 1f; // Minimum time interval between spawns
     public float spawnIntervalDecreaseRate = 0.1f; // Rate at which the spawn interval decreases
@@ -36,6 +42,23 @@ public class MagnetSpawner : MonoBehaviour
         }
     }
 
+    private GameObject getMagnet()
+    {
+        float magnetWeightSum = magnetProbWeights.Sum();
+        float threshold = Random.Range(0, magnetProbWeights.Sum());
+
+        float sum = 0;
+        for (int i = 0; i < magnetProbWeights.Length; i++)
+        {
+            sum += magnetProbWeights[i];
+            if (threshold <= sum)
+            {
+                return magnetPrefabs[i];
+            }
+        }
+        throw new Exception("Exception: Did not choose Magnet Prefab");
+    }
+
     private void SpawnMagnet()
     {
         Vector2 spawnPosition;
@@ -54,7 +77,8 @@ public class MagnetSpawner : MonoBehaviour
         } while (!validPosition);
 
         // Select a random prefab from the array
-        GameObject randomPrefab = magnetPrefabs[Random.Range(0, magnetPrefabs.Length)];
+
+        GameObject randomPrefab = getMagnet();
 
         // Instantiate the selected magnet
         Instantiate(randomPrefab, spawnPosition, Quaternion.identity);
