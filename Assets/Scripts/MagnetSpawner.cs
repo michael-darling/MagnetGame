@@ -9,18 +9,20 @@ public class MagnetSpawner : MonoBehaviour
     public GameObject[] magnetPrefabs; // Array of magnet prefabs to spawn
     public float[] magnetProbWeights;
 
-    public float initialSpawnInterval = 5f; // Initial time interval between spawns
-    public float minimumSpawnInterval = 1f; // Minimum time interval between spawns
-    public float spawnIntervalDecreaseRate = 0.1f; // Rate at which the spawn interval decreases
+    [SerializeField]
+    private float spawnRate = 1;
+    public float SpawnRate
+    {
+        get => spawnRate;
+        set => spawnRate = value;
+    }
+
     public float spawnRadius = 10f; // Radius within which to spawn magnets
     public Transform player; // Reference to the player
     public float minimumDistanceFromPlayer = 2f; // Minimum distance from player to spawn
 
-    private float currentSpawnInterval;
-
     private void Start()
     {
-        currentSpawnInterval = initialSpawnInterval;
         StartCoroutine(SpawnMagnets());
     }
 
@@ -29,14 +31,7 @@ public class MagnetSpawner : MonoBehaviour
         while (true)
         {
             SpawnMagnet();
-            yield return new WaitForSeconds(currentSpawnInterval);
-
-            // Decrease the spawn interval over time
-            currentSpawnInterval -= spawnIntervalDecreaseRate;
-            if (currentSpawnInterval < minimumSpawnInterval)
-            {
-                currentSpawnInterval = minimumSpawnInterval;
-            }
+            yield return new WaitForSeconds(1 / SpawnRate);
         }
     }
 
