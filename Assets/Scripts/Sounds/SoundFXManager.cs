@@ -14,7 +14,7 @@ public class SoundFXManager : MonoBehaviour
         }
     }
 
-    public void PlaySoundFXClip(AudioClip audioClip, Transform spawnTransform, float volume)
+    public void PlaySoundFXClip(AudioClip audioClip, Transform spawnTransform, float volume, FloatRange? pitch = null)
     {
         Debug.Log($"Audio clip: {audioClip.name}");
         AudioSource audioSource = Instantiate(soundFXObject, spawnTransform.position, Quaternion.identity);
@@ -24,6 +24,15 @@ public class SoundFXManager : MonoBehaviour
 
         //assign volume
         audioSource.volume = volume;
+
+        // assign pitch
+        if (pitch != null) {
+            audioSource.pitch = pitch.Value.GetRandom();
+        } 
+        else
+        {
+            audioSource.pitch = 1f;
+        }
 
         //play sound
         audioSource.Play();
