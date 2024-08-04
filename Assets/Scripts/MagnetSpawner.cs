@@ -42,7 +42,6 @@ public class MagnetSpawner : MonoBehaviour
 
     private GameObject getMagnet()
     {
-        float magnetWeightSum = magnetProbWeights.Sum();
         float threshold = Random.Range(0, magnetProbWeights.Sum());
 
         float sum = 0;
