@@ -13,6 +13,7 @@ public class ExplodeOnTouch : MonoBehaviour
     private bool isExploded;
     private Health health;
     [SerializeField] private AudioClip explosionSoundClip;
+    [SerializeField] private FloatRange pitchRange = new FloatRange(0.8f, 1.2f);
 
     void Start()
     {
@@ -76,7 +77,7 @@ public class ExplodeOnTouch : MonoBehaviour
         }
 
         // play explosion sound effect
-        SoundFXManager.instance.PlaySoundFXClip(explosionSoundClip, transform, 1f);
+        SoundFXManager.instance.PlaySoundFXClip(explosionSoundClip, transform, 1f, pitchRange);
 
         // Destroy the explosive magnet
         Destroy(gameObject);

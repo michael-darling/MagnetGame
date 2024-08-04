@@ -113,3 +113,6 @@ MonoBehaviour:
     min: 0.1
     max: 0.2
   explosionSoundClip: {fileID: 8300000, guid: 9b89113899f80c243846585c37fc1beb, type: 3}
+  pitchRange:
+    min: 0.5
+    max: 1
