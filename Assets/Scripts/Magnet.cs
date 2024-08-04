@@ -13,8 +13,17 @@ public class Magnet : MonoBehaviour
 
     void Start()
     {
-        magnets.Add(this);
         rb = GetComponent<Rigidbody2D>();
+    }
+
+    private void OnEnable()
+    {
+        magnets.Add(this);
+    }
+
+    private void OnDisable()
+    {
+        magnets.Remove(this);
     }
 
     void FixedUpdate()
