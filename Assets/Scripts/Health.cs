@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 public class Health : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Health : MonoBehaviour
 
     [SerializeField]
     private GameObject deathAnimationPrefab;
+    public event Action OnDeath;
 
     void Start()
     {
@@ -31,6 +33,8 @@ public class Health : MonoBehaviour
         if (currentHealth <= 0f)
         {
             Die();
+            currentHealth = 0f;
+            OnDeath?.Invoke();
         }
         UpdateHealthBar();
     }

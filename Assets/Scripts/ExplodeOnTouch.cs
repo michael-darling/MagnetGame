@@ -10,19 +10,40 @@ public class ExplodeOnTouch : MonoBehaviour
     [SerializeField]
     private FloatRange explosionDelay;
     private bool isExploded;
+    private Health health;
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    void Start()
     {
-        if (!isExploded && collision.collider.CompareTag("Player"))
+        if (TryGetComponent(out health))
+        {
+            health.OnDeath += OnDeath;
+        }
+    }
+
+    void OnDestroy()
+    {
+        if (health != null)
+        {
+            health.OnDeath -= OnDeath;
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (!isExploded && collision.gameObject.CompareTag("Player"))
         {
             StartCoroutine(Explode());
         }
     }
 
+    private void OnDeath()
+    {
+        StartCoroutine(Explode());
+    }
+
     private IEnumerator Explode()
     {
         isExploded = true;
-
         yield return new WaitForSeconds(explosionDelay.GetRandom());
 
         // Instantiate explosion effect
@@ -37,14 +58,14 @@ public class ExplodeOnTouch : MonoBehaviour
         {
             if (collider.CompareTag("Magnet") && collider.gameObject != gameObject)
             {
-                // Apply damage
-                if (collider.TryGetComponent<Health>(out var magnetHealth))
+                // Apply damage to other magnets
+                if (collider.TryGetComponent(out Health magnetHealth))
                 {
                     magnetHealth.TakeDamage(damage);
                 }
 
-                // Apply explosion force
-                if (collider.TryGetComponent<Rigidbody2D>(out var rb))
+                // Apply explosion force to other magnets
+                if (collider.TryGetComponent(out Rigidbody2D rb))
                 {
                     Vector2 direction = collider.transform.position - transform.position;
                     rb.AddForce(direction.normalized * explosionForce);
