@@ -55,7 +55,7 @@ MonoBehaviour:
   - 1
   - 1
   initialSpawnInterval: 2
-  minimumSpawnInterval: 1
+  minimumSpawnInterval: 0.5
   spawnIntervalDecreaseRate: 0.1
   spawnRadius: 10
   player: {fileID: 0}
