@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3258032722348847230}
   - component: {fileID: 487038469019377276}
+  - component: {fileID: 7481364443595850461}
   m_Layer: 0
   m_Name: MagnetSpawner
   m_TagString: Untagged
@@ -54,9 +55,22 @@ MonoBehaviour:
   - 1
   - 1
   - 1
-  initialSpawnInterval: 1
-  minimumSpawnInterval: 0.25
-  spawnIntervalDecreaseRate: 0.05
+  spawnRate: 2
   spawnRadius: 10
   player: {fileID: 0}
   minimumDistanceFromPlayer: 4
+--- !u!114 &7481364443595850461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2336675558143898808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93dd71306e3854256a96b6d7a7c2f3fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawner: {fileID: 487038469019377276}
+  timePerRateIncrease: 4
+  increaseAmount: 0.25
