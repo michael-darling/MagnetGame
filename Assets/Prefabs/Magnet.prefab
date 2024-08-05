@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4fd3507e6ff2455ea67c10d9449a8c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strength: 10
+  strength: 8.75
   isPositive: 1
   distancePower: 2
 --- !u!50 &1854743574346903271
