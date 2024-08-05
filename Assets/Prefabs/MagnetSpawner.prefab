@@ -73,4 +73,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawner: {fileID: 487038469019377276}
   timePerRateIncrease: 4
-  increaseAmount: 0.5
+  increaseAmount: 0.25
